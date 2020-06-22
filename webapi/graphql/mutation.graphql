@@ -1,0 +1,15 @@
+type Mutation {
+    addAccount(input: AddAccountInput!): AddAccountPayload
+    addReservation(input: AddReservationInput!): AddReservationPayload
+}
+input AddReservationInput {
+    eventId: ID!
+    spotCount: Int!
+    clientMutationId: String
+}
+
+type AddReservationPayload {
+    account: Account
+    event: String!
+    spotCount: Int!
+}

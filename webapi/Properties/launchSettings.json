@@ -19,9 +19,9 @@
 		},
 		"webapiPgGql": {
 			"commandName": "Project",
-			"launchBrowser": true,
+			"launchBrowser": false,
 			"launchUrl": "api",
-			"applicationUrl": "https://localhost:5001/api;http://localhost:5000/api",
+			"applicationUrl": "https://localhost:5001;http://localhost:5000",
 			"environmentVariables": {
 				"ASPNETCORE_ENVIRONMENT": "Development"
 			}

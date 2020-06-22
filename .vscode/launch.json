@@ -9,7 +9,7 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/bin/Debug/netcoreapp3.0/webapiPgGql.dll",
+			"program": "${workspaceFolder}/webapi/bin/Debug/netcoreapp3.0/webapiPgGql.dll",
 			"args": ["urls=http://localhost:5000"],
 			"cwd": "${workspaceFolder}",
 			"stopAtEntry": false,
@@ -22,7 +22,23 @@
 				"ASPNETCORE_ENVIRONMENT": "Development"
 			},
 			"sourceFileMap": {
-				"/Views": "${workspaceFolder}/Views"
+				"/Views": "${workspaceFolder}/webapi/Views"
+			}
+		},
+		{
+			"name": ".NET Core Launch",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/webapi/bin/Debug/netcoreapp3.0/webapiPgGql.dll",
+			"args": ["urls=http://localhost:5000"],
+			"cwd": "${workspaceFolder}/webapi",
+			"stopAtEntry": false,
+			"env": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
+			"sourceFileMap": {
+				"/Views": "${workspaceFolder}/webapi/Views"
 			}
 		},
 		{

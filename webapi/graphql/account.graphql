@@ -1,0 +1,30 @@
+type Account implements Node {
+    id: ID!
+    name: String!
+    surname: String!
+    email: String!
+    isAdmin: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
+    reservations: [Reservation!]
+}
+
+input AddAccountInput {
+    name: String!
+    surname: String!
+    email: String!
+    clientMutationId: String
+}
+
+type AddAccountPayload {
+    account: Account
+    clientMutationId: String
+}
+# sample reservation type
+type Reservation {
+    account: Account!
+    spotCount: Int!
+    event: String!
+}
+scalar Time
+
