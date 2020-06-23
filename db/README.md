@@ -1,0 +1,1 @@
+to scaffold database you first need to create `.env` file see `example.env` then you need to run script `generate-database.sh` this will create dbcontext and other entities
