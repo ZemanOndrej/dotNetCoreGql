@@ -20,11 +20,5 @@ type AddAccountPayload {
     account: Account
     clientMutationId: String
 }
-# sample reservation type
-type Reservation {
-    account: Account!
-    spotCount: Int!
-    event: String!
-}
-scalar Time
+
 

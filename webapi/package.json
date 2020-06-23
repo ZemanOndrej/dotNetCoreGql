@@ -16,6 +16,7 @@
   },
   "scripts": {
     "generate": "graphql-codegen --config codegen.yml",
-    "merge": "node script.js"
+    "merge": "node script.js",
+    "update": "graphql-codegen --config codegen.yml && node script.js"
   }
 }

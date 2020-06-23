@@ -7,13 +7,13 @@ using GraphQLCodeGen;
 using HotChocolate;
 using Microsoft.EntityFrameworkCore;
 
-namespace webapiPgGql.models
+namespace webapiPgGql.resolver
 {
-	public class Query
+	public class QueryResolver
 	{
 		private readonly IMapper _mapper;
 
-		public Query(IMapper mapper)
+		public QueryResolver(IMapper mapper)
 		{
 			_mapper = mapper;
 		}
@@ -30,16 +30,22 @@ namespace webapiPgGql.models
 			return _mapper.Map<Types.Account>(account);
 		}
 
-		public async Task<IReadOnlyList<Types.Reservation>> GetAccountReservations([Service] YogaDbContext dbContext,
+		public async Task<IReadOnlyList<CustomReservation>> GetAccountReservations([Service] YogaDbContext dbContext,
 			string id)
 		{
 			var reservations = await dbContext.Reservation.Where(r => r.AccountId.ToString() == id).ToListAsync();
-			return _mapper.Map<List<Types.Reservation>>(reservations);
+			return _mapper.Map<List<CustomReservation>>(reservations);
 		}
 
 		public async Task<Types.Account> GetNode([Service] YogaDbContext context, string id)
 		{
 			return _mapper.Map<Types.Account>(await context.Account.FirstOrDefaultAsync());
+		}
+
+		public async Task<List<Types.Event>> GetEvents([Service] YogaDbContext context)
+		{
+			var events = await context.Event.ToListAsync();
+			return _mapper.Map<List<Types.Event>>(events);
 		}
 	}
 }

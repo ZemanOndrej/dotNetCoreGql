@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AutoMapper;
 using db.Models;
 using HotChocolate;
@@ -12,7 +13,7 @@ using GraphQLCodeGen;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using WebApiPgGql.mappings;
-using webapiPgGql.models;
+using webapiPgGql.resolver;
 
 
 namespace WebApiPgGql
@@ -37,20 +38,25 @@ namespace WebApiPgGql
 			services.AddDataLoaderRegistry();
 			services.AddGraphQL(sp =>
 				SchemaBuilder.New().AddDocumentFromFile(Configuration["schemaLocation"])
-					.BindComplexType<Query>(b => b
-						.To("Query")
-						.Field(t => t.GetAccounts(default)).Name("accounts")
-						.Field(t => t.GetNode(default, "")).Name("node")) // todo id 
-					.BindComplexType<Types.Mutation>()
+					.BindComplexType<Types.Query>()
+					.BindResolver<QueryResolver>(c => c.To<Types.Query>())
 					.BindComplexType<Types.Account>()
+					.BindResolver<AccountResolver>(c => c.To<Types.Account>())
+					.BindComplexType<Types.Mutation>()
+					.BindResolver<MutationResolver>(c => c.To<Types.Mutation>())
+					.BindComplexType<Types.Event>()
+					.BindResolver<EventResolver>(c => c.To<Types.Event>())
+					.BindComplexType<CustomReservation>(c => c.To("Reservation"))
+					.BindResolver<ReservationResolver>(c => c.To<CustomReservation>())
 					.BindComplexType<Types.AddReservationInput>()
 					.BindComplexType<Types.AddAccountInput>()
+					.BindComplexType<Types.AddEventInput>()
+					.BindComplexType<Types.AddEventPayload>()
 					.BindComplexType<Types.AddAccountPayload>()
 					.BindComplexType<Types.AddReservationPayload>()
-					.BindComplexType<Types.Reservation>()
 					.BindClrType<DateTime, TimeType>()
 					.Create());
-			services.AddEntityFrameworkNpgsql().AddDbContext<YogaDbContext>();
+			services.AddDbContext<YogaDbContext>(ServiceLifetime.Transient);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

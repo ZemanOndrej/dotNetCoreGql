@@ -5,8 +5,11 @@ type Query {
         id: ID!
     ): Node
     accounts:[Account!]
+    events:[Event!]
 }
 interface Node {
     # The id of the object.
     id: ID!
 }
+
+scalar Time

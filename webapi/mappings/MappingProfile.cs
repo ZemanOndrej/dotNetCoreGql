@@ -1,6 +1,7 @@
 using AutoMapper;
 using db.Models;
 using GraphQLCodeGen;
+using webapiPgGql.resolver;
 
 namespace WebApiPgGql.mappings
 {
@@ -9,9 +10,11 @@ namespace WebApiPgGql.mappings
 		public MappingProfile()
 		{
 			CreateMap<Account, Types.Account>();
-			CreateMap<Reservation, Types.Reservation>();
+			CreateMap<Reservation, CustomReservation>();
 			CreateMap<Types.Account, Account>();
-			CreateMap<Types.Reservation, Reservation>();
+			CreateMap<CustomReservation, Reservation>();
+			CreateMap<Types.Event, Event>();
+			CreateMap<Event, Types.Event>();
 		}
 	}
 }

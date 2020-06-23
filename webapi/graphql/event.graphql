@@ -1,0 +1,29 @@
+type Event implements Node {
+    # The ID of an object
+    id: ID!
+    lesson: String!
+    datetime: Time!
+    isCancelled: Boolean!
+    reservations: [Reservation!]
+    reservationsCount: Int!
+    createdAt: Time!
+    updatedAt: Time!
+    teacherReplacement: String
+}
+
+type Reservation {
+    account: Account!
+    spotCount: Int!
+    event: Event!
+}
+
+input AddEventInput {
+    lessonId: String!
+    datetime: Time!
+    weeks: Int!
+    clientMutationId: String
+}
+type AddEventPayload {
+    event: [Event]
+    clientMutationId: String
+}
