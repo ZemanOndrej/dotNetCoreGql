@@ -46,7 +46,7 @@ namespace webapiPgGql.resolver
 			Types.AddReservationInput input)
 		{
 			var eId = int.Parse(input.eventId);
-			var accId = Guid.Parse("d4c96458-b161-11ea-9c62-a759c513c356"); //this will be authenticated user
+			var accId = Guid.Parse("d4c96458-b161-11ea-9c62-a759c513c356"); //this will be authenticated users ID
 			var acc = await context.Account.FirstOrDefaultAsync(a => a.Id == accId);
 
 			var @event = await context.Event.FirstOrDefaultAsync(e => e.Id == eId);
@@ -61,7 +61,7 @@ namespace webapiPgGql.resolver
 			var payload = new Types.AddReservationPayload
 			{
 				account = _mapper.Map<Types.Account>(acc),
-				@event = @event.ToString(), //_mapper.Map<Types.Event>(@event) but now event is string
+				@event = _mapper.Map<Types.Event>(@event),
 				spotCount = input.spotCount
 			};
 

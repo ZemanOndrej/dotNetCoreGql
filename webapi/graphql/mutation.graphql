@@ -10,6 +10,6 @@ input AddReservationInput {
 
 type AddReservationPayload {
     account: Account
-    event: String!
+    event: Event!
     spotCount: Int!
 }
