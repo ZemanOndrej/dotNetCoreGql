@@ -34,6 +34,7 @@
 			"args": ["urls=http://localhost:5000"],
 			"cwd": "${workspaceFolder}/webapi",
 			"stopAtEntry": false,
+			"requireExactSource": false,
 			"env": {
 				"ASPNETCORE_ENVIRONMENT": "Development"
 			},

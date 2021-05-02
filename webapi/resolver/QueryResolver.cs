@@ -46,15 +46,15 @@ namespace webapiPgGql.resolver
 			throw new NotImplementedException("this is not viable code");
 			//this needs to be here because graphql-code-gen doesnt create interface types in c#
 
-//			switch (type.Type)
-//			{
-//				case ACCOUNT:
-//					return await GetAccount(context, type.Id);
-//				case EVENT:
-//					return await GetEvent(context, type.Id);
-//				default:
-//					return new Types.Node();
-//			}
+			//			switch (type.Type)
+			//			{
+			//				case ACCOUNT:
+			//					return await GetAccount(context, type.Id);
+			//				case EVENT:
+			//					return await GetEvent(context, type.Id);
+			//				default:
+			//					return new Types.Node();
+			//			}
 		}
 
 		public async Task<Types.Account> GetAccount([Service] YogaDbContext dbContext, string id)
@@ -86,7 +86,7 @@ namespace webapiPgGql.resolver
 			var base64EncodedBytes = System.Convert.FromBase64String(id);
 			var text = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
 			var tokens = text.Split(':');
-			return tokens.Length != 2 ? null : new Local {Type = tokens[0], Id = tokens[1]};
+			return tokens.Length != 2 ? null : new Local { Type = tokens[0], Id = tokens[1] };
 		}
 
 
