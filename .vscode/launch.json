@@ -9,37 +9,19 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/webapi/bin/Debug/netcoreapp3.0/webapiPgGql.dll",
-			"args": ["urls=http://localhost:5000"],
-			"cwd": "${workspaceFolder}",
+			"program": "${workspaceFolder}/webapi/bin/Debug/netcoreapp3.1/webapiPgGql.dll",
+			"args": [],
+			"cwd": "${workspaceFolder}/webapi",
 			"stopAtEntry": false,
 			"serverReadyAction": {
 				"action": "openExternally",
-				"pattern": "^\\s*Now listening on:\\s+https?://\\S+",
-				"uriFormat": "http://localhost:5000/api"
+				"pattern": "\\bNow listening on:\\s+(https?://\\S+)"
 			},
 			"env": {
 				"ASPNETCORE_ENVIRONMENT": "Development"
 			},
 			"sourceFileMap": {
-				"/Views": "${workspaceFolder}/webapi/Views"
-			}
-		},
-		{
-			"name": ".NET Core Launch",
-			"type": "coreclr",
-			"request": "launch",
-			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/webapi/bin/Debug/netcoreapp3.0/webapiPgGql.dll",
-			"args": ["urls=http://localhost:5000"],
-			"cwd": "${workspaceFolder}/webapi",
-			"stopAtEntry": false,
-			"requireExactSource": false,
-			"env": {
-				"ASPNETCORE_ENVIRONMENT": "Development"
-			},
-			"sourceFileMap": {
-				"/Views": "${workspaceFolder}/webapi/Views"
+				"/Views": "${workspaceFolder}/Views"
 			}
 		},
 		{

@@ -28,7 +28,7 @@ namespace webapiPgGql.resolver
 				IsAdmin = false,
 				ReceiveNewsletters = false,
 				CreatedAt = DateTime.Now,
-				AuthId = "TEST2"
+				AuthId = Guid.NewGuid().ToString()
 			};
 
 			dbContext.Account.Add(account);

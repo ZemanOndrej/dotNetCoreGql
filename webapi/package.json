@@ -1,22 +1,22 @@
 {
-  "name": "webapi",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "devDependencies": {
-    "@graphql-codegen/c-sharp": "^1.15.4",
-    "@graphql-codegen/c-sharp-operations": "^1.15.4",
-    "@graphql-codegen/cli": "1.15.4",
-    "@graphql-codegen/introspection": "1.15.4",
-    "@graphql-codegen/time": "^1.15.4",
-    "graphql": "^14.6.0",
-    "graphql-tag": "2.10.3",
-    "@graphql-tools/load-files": "latest",
-    "@graphql-tools/merge": "latest"
-  },
-  "scripts": {
-    "generate": "graphql-codegen --config codegen.yml",
-    "merge": "node script.js",
-    "update": "graphql-codegen --config codegen.yml && node script.js"
-  }
+	"name": "webapi",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"@graphql-codegen/c-sharp": "^1.19.0",
+		"@graphql-codegen/c-sharp-operations": "^1.19.0",
+		"@graphql-codegen/cli": "^1.21.4",
+		"@graphql-codegen/introspection": "^1.18.2",
+		"@graphql-codegen/time": "^2.0.2",
+		"@graphql-tools/load-files": "^6.3.2",
+		"@graphql-tools/merge": "^6.2.13",
+		"graphql": "^15.5.0",
+		"graphql-tag": "^2.12.4"
+	},
+	"scripts": {
+		"generate": "graphql-codegen --config codegen.yml",
+		"merge": "node script.js",
+		"update": "graphql-codegen --config codegen.yml && node script.js"
+	}
 }
